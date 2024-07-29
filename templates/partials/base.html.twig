@@ -1,69 +1,98 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
+<!--
+	Arcana by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
 <html lang="{{ (grav.language.getActive ?: grav.config.site.default_lang)|e }}">
 <head>
 {% block head %}
-    <meta charset="utf-8" />
-    <title>{% if header.title %}{{ header.title|e }} | {% endif %}{{ site.title|e }}</title>
+	<title>{% if header.title %}{{ header.title|e }} | {% endif %}{{ site.title|e }}</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    {% include 'partials/metadata.html.twig' %}
+	{% include 'partials/metadata.html.twig' %}
 
-    <link rel="icon" type="image/png" href="{{ url('theme://images/logo.png')|e }}" />
-    <link rel="canonical" href="{{ page.canonical(true)|e }}" />
+	<link rel="icon" type="image/png" href="{{ url('theme://images/logo.png')|e }}" />
+	<link rel="canonical" href="{{ page.canonical(true)|e }}" />
 {% endblock head %}
 
 {% block stylesheets %}
-    {% do assets.addCss('https://unpkg.com/purecss@1.0.0/build/pure-min.css', 100) %}
-    {% do assets.addCss('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css', 99) %}
-    {% do assets.addCss('theme://css/custom.css', 98) %}
+	{% style 'theme://assets/css/main.css' %}
+	{% style 'theme://assets/css/custom.css' priority: 98 %}
 {% endblock %}
 
 {% block javascripts %}
-    {% do assets.addJs('jquery', 100) %}
+	{% script 'theme://assets/js/jquery.min.js' at 'bottom' priority: 105 %}
+	{% script 'theme://assets/js/jquery.dropotron.min.js' at 'bottom' priority: 104 %}
+	{% script 'theme://assets/js/browser.min.js' at 'bottom' priority: 103 %}
+	{% script 'theme://assets/js/breakpoints.min.js' at 'bottom' priority: 102 %}
+	{% script 'theme://assets/js/util.js' at 'bottom' priority: 101 %}
+	{% script 'theme://assets/js/main.js' at 'bottom' priority: 100 %}
 {% endblock %}
 
 {% block assets deferred %}
-    {{ assets.css()|raw }}
-    {{ assets.js()|raw }}
+	{{ assets.css()|raw }}
+	{{ assets.js()|raw }}
 {% endblock %}
+
 </head>
-<body id="top" class="{{ page.header.body_classes|e }}">
+
+<body class="is-preload {{ page.header.body_classes|e }}">
+	<div id="page-wrapper">
 
 {% block header %}
-    <div class="header">
-        <div class="wrapper padding">
-            <a class="logo left" href="{{ home_url|e }}">
-                <i class="fa fa-rebel"></i>
-                {{ config.site.title|e }}
-            </a>
-            {% block header_navigation %}
-            <nav class="main-nav">
-                {% include 'partials/navigation.html.twig' %}
-            </nav>
-            {% endblock %}
-        </div>
-    </div>
+		<!-- Header -->
+			<div id="header">
+				{{ include('partials/logo.html.twig') }}
+				{{ include('partials/navigation.html.twig') }}
+			</div>
 {% endblock %}
 
 {% block body %}
-    <section id="body">
-        <div class="wrapper padding">
-        {% block content %}{% endblock %}
-        </div>
-    </section>
+			<!-- Main -->
+				<section class="wrapper style1">
+					<div class="container">
+						<div id="content">
+
+							<!-- Content -->
+
+								<article>
+									{% block precis %}
+									<header>
+										<h2>{{ page.title|raw }}</h2>
+										<p>All content, all the time.</p>
+									</header>
+									{% endblock %}
+
+									{% block feature %}
+										{% if page.header.feature is defined %}
+											{% set feature = page.header.feature %}
+											{% if page.media[feature] %}
+												{% set feature_url = page.media[feature].url %}
+											{% endif %}
+										{% endif %}
+										<span class="image featured"><img src="{{ feature_url|default(url('theme://images/banner.jpg')) }}" alt="" /></span>
+									{% endblock %}
+
+									{% block content %}
+										{{ page.content|raw }}
+									{% endblock %}
+
+								</article>
+						</div>
+					</div>
+				</section>
 {% endblock %}
 
 {% block footer %}
-    <div class="footer text-center">
-        <div class="wrapper padding">
-            <p><a href="https://getgrav.org">Grav</a> was <i class="fa fa-code"></i> with <i class="fa fa-heart"></i> by <a href="https://trilby.media">Trilby Media, LLC</a>.</p>
-        </div>
-    </div>
+	{{ include('partials/footer.html.twig') }}
 {% endblock %}
 
+	</div>
+
 {% block bottom %}
-    {{ assets.js('bottom')|raw }}
+	{{ assets.js('bottom')|raw }}
 {% endblock %}
 
 </body>
