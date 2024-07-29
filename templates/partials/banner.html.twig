@@ -1,0 +1,15 @@
+{% if page.header.banner is defined %}
+	{% set banner = page.header.banner %}
+	{% if banner.background and page.media[banner.background] %}
+		{% set custom_background_attribute %} style="background-image: url('{{ page.media[banner.background].url }}');"{% endset %}
+	{% endif %}
+			<!-- Banner -->
+				<section id="banner"{{ custom_background_attribute }}>
+					<header>
+						<h2>{{ banner.blurb|markdown(false) }}</h2>
+						{% if banner.cta and banner.cta.enabled is not sameas(false) %}
+						<a href="{{ banner.cta.target }}" class="button">{{ banner.cta.text|raw }}</a>
+						{% endif %}
+					</header>
+				</section>
+{% endif %}
