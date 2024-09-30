@@ -1,0 +1,38 @@
+{% set button_type = button.type|default('submit') %}
+
+{% set embed_button_core_value %}
+{% block embed_button_core %}{% endblock %}
+{% endset %}
+
+{% set embed_button_classes_value %}
+{% block embed_button_classes %}{% endblock %}
+{% endset %}
+
+{% set embed_button_content_value %}
+{% block embed_button_content %}{% endblock %}
+{% endset %}
+
+{% set button_input = (button_type in ['submit', 'reset']) %}
+
+{% set button_tag %}
+<li>
+{% if button_input %}
+    <input
+        {{ embed_button_core_value }}
+        {{ embed_button_classes_value }}
+        value="{{ embed_button_content_value|striptags }}"
+    />
+{% else %}
+    <button
+        {{ embed_button_core_value }}
+        {{ embed_button_classes_value }}
+    >{{ embed_button_content_value }}</button>
+{% endif %}
+</li>
+{% endset %}
+
+{% if button_url and button_input %}
+  <a href="{{ button_url|e }}">{{ button_tag|trim|raw }}</a>
+{% else %}
+  {{ button_tag|trim|raw }}
+{% endif %}

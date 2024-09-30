@@ -1,0 +1,9 @@
+{% extends '@formplugin/forms/default/form.html.twig' %}
+
+{% block inner_markup_buttons_start %}
+<ul class="{{ ['actions', form_button_outer_classes|trim]|join(' ') }}">
+{% endblock %}
+
+{% block inner_markup_buttons_end %}
+</ul>
+{% endblock %}

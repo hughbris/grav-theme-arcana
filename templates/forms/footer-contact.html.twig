@@ -1,0 +1,6 @@
+{# {% set form = form ?? grav.session.getFlashObject('form') %}
+{% if form.title %}
+<h3>{{ form.title }}</h3>
+{% endif %} #}
+{{ include('forms/default/footer-contact.html.twig') }} {# FIXME: if that template needs no customisation, just include the default one #}
+{# it doesn't , this could be an extends again I think #}
