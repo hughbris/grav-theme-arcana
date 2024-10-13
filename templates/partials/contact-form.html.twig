@@ -12,7 +12,7 @@
 <section class="col-6 col-12-narrower">
 
 {% if forms_enabled and contact_form is defined %}
-	{{ include('forms/footer-contact.html.twig', {form: contact_form}) }}
+	{{ include('forms/form.html.twig', {form: contact_form}) }}
 {% else %}
 	{{ include('partials/arcana-footer-contact.html') }}
 {% endif %}
