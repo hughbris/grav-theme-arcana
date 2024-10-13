@@ -42,7 +42,6 @@ forms:
     contact-form:
         …
         xhr_submit: true
-        # action: ''
         fields:
             …
 ```
