@@ -23,18 +23,9 @@ Arcana's contact form in its footer is hardcoded HTML by default so that the the
 
 However, if the Form plugin is installed and enabled _and_ you have defined **at least one form on the homepage** (or another page that you specify), the _first one defined_ (or another that you specify) will be used as a working contact form.
 
-To make this form render like the parent theme, add the `layout: footer` form property to your form. This ensures that Arcana uses the custom templates it provides:
+Your contact form can use any name if it's the first form defined on its page. Otherwise you'll have to pass its name as a parameter (`form_name`) in `templates/partials/footer.html.twig`.
 
-```yaml
-forms:
-    contact-form: # this can be any name if it's the first form defined, otherwise you'll have to pass its name as a parameter (`form_name`) in templates/partials/footer.html.twig
-        keep_alive: true
-        title: Get in touch # you can change this to your liking, too
-        layout: footer
-        …
-        fields:
-            …
-```
+If you add a `title` property for the form, it will be used at the top of the contact form in the footer, replacing "Get In Touch".
 
 > Arcana's demo homepage frontmatter includes an example form, which will work as long as the Form plugin is enabled.
 
@@ -50,7 +41,6 @@ Aracana's demo content features a working AJAX contact form in the footer, speci
 forms:
     contact-form:
         …
-        layout: footer # included again as a reminder to use it!
         xhr_submit: true
         # action: ''
         fields:
@@ -79,7 +69,6 @@ metadata:
 forms:
     contact:
         keep_alive: true
-        layout: footer
         action: '/contact' # MUST specify an absolute path here, as this form will be used in every page path context
         client_side_validation: false # this is useful for testing, then turn it off
         fields:
