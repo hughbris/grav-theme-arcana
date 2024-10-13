@@ -17,6 +17,22 @@ The source HTML5UP theme uses a consistent `h1` element heading whose contents a
 	<h1><a href="{{ home_url }}" id="logo">{{ config.site.title|e }}{% if not page.home() %} :: <em>{{ page.title|e }}</em>{% endif %}</a></h1>
 ```
 
+### Feature images for pages
+
+Most of Arcana's page templates add a "feature" or hero image that you can change in frontmatter:
+
+```yaml
+feature: myhero.jpg
+```
+
+This must come from the page's own media. If your image is broken or you don't include this frontmatter, then Arcana will show its boring bundled placeholder image.
+
+**If you don't want a hero image** _for a particular page_, even the lovely default, you can specify:
+
+```yaml
+show_feature: false
+```
+
 ### Working footer contact forms
 
 Arcana's contact form in its footer is hardcoded HTML by default so that the theme will work without the Form plugin. Adding a plugin dependency would limit developers' ability to remove or replace the contact form entirely.

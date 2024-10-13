@@ -67,13 +67,15 @@
 									{% endblock %}
 
 									{% block feature %}
-										{% if page.header.feature is defined %}
-											{% set feature = page.header.feature %}
-											{% if page.media[feature] %}
-												{% set feature_url = page.media[feature].url %}
+										{% if page.header.show_feature|defined(true) is not sameas(false) %}
+											{% if page.header.feature is defined %}
+												{% set feature = page.header.feature %}
+												{% if page.media[feature] %}
+													{% set feature_url = page.media[feature].url %}
+												{% endif %}
 											{% endif %}
+											<span class="image featured"><img src="{{ feature_url|default(url('theme://images/banner.jpg')) }}" alt="" /></span>
 										{% endif %}
-										<span class="image featured"><img src="{{ feature_url|default(url('theme://images/banner.jpg')) }}" alt="" /></span>
 									{% endblock %}
 
 									{% block content %}
