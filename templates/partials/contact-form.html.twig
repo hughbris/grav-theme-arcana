@@ -1,7 +1,18 @@
-{% set homepage = page.find('/') %}
+{% set form_page = page.find(form_page_path|default('/')) %}
+{# NB: form_name parameter can also be passed to this template #}
+{% set forms_enabled = (config.plugins.form and config.plugins.form.enabled) %}
+
+{% if form_page and form_page.forms %}
+	{% set form_name = form_name ?? form_page.forms|keys|first %}
+	{% if form_name in form_page.forms|keys %} {# make sure the form is actually on that page, because global forms() doesn't shoulder that risk #}
+		{% set contact_form = forms(form_name) %}
+	{% endif %}
+{% endif %}
+
 <section class="col-6 col-12-narrower">
-{% if homepage.forms and config.plugins.form and config.plugins.form.enabled %}
-	{{ include('forms/footer-contact.html.twig', {form: forms(homepage.forms|keys|first)}) }}
+
+{% if forms_enabled and contact_form is defined %}
+	{{ include('forms/footer-contact.html.twig', {form: contact_form}) }}
 {% else %}
 	<h3>Get In Touch</h3>
 	<form>
