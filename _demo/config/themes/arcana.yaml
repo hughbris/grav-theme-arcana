@@ -1,0 +1,39 @@
+footer:
+
+  col1:
+    heading: Links to Stuff
+    links:
+      'Mattis et quis rutrum': '#'
+      'Suspendisse amet varius': '#'
+      'Sed et dapibus quis': '#'
+      'Rutrum accumsan dolor': '#'
+      'Mattis rutrum accumsan': '#'
+      'Suspendisse varius nibh': '#'
+      'Sed et dapibus mattis': '#'
+  col2:
+    heading: More Links to Stuff
+    links:
+      'Duis neque nisi dapibus': '#'
+      'Sed et dapibus quis': '#'
+      'Rutrum accumsan sed': '#'
+      'Mattis et sed accumsan': '#'
+      'Duis neque nisi sed': '#'
+      'Sed et dapibus quis': '#'
+      'Rutrum amet varius': '#'
+
+  social:
+    Twitter:
+      target: '#'
+      icon: fa-twitter
+    Facebook:
+      target: '#'
+      icon: fa-facebook-f
+    Github:
+      target: '#'
+      icon: fa-github
+    LinkedIn:
+      target: '#'
+      icon: fa-linkedin-in
+    Google+:
+      target: '#'
+      icon: fa-google-plus-g
