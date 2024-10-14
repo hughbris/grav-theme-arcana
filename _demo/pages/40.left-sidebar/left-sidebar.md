@@ -2,7 +2,7 @@
 title: Left Sidebar
 sidebars:
   items:
-    - '@page.page': '/left-sidebar/_just-subheading'
+    - '@page.page': '/shared/_sidebars/_just-subheading'
     - '@page.page': '/shared/_sidebars/_another-subheading'
 
 ---
