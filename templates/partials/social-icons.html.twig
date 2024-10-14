@@ -1,0 +1,6 @@
+<!-- Icons -->
+	<ul class="icons">
+		{% for network, props in theme_var('footer').social %}
+			<li><a href="{{ props.target|e('url') }}" class="icon brands {{ props.icon|e('html_attr') }}"><span class="label">{{ network }}</span></a></li>
+		{% endfor %}
+	</ul>
