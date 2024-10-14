@@ -1,0 +1,10 @@
+{% set sid = sid|default('sidebar') %}
+<div id="{{ sid }}">
+	<!-- Sidebar -->
+
+	{% set sidebars = page.collection(sid) %}
+	{% for sidebar in sidebars %}
+		{{ sidebar.content()|raw }}
+	{% endfor %}
+
+</div>

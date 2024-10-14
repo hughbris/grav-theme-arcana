@@ -6,15 +6,7 @@
 		<div class="container">
 			<div class="row gtr-200">
 				<div class="col-3 col-12-narrower">
-					<div id="sidebar1">
-						<!-- Sidebar -->
-
-						{% set sidebars = page.collection('sidebar1') %}
-						{% for sidebar in sidebars %}
-							{{ sidebar.content()|raw }}
-						{% endfor %}
-
-					</div>
+					{{ include('partials/sidebar.html.twig', {'sid': 'sidebar1'}) }}
 				</div>
 
 				<div class="col-6 col-12-narrower imp-narrower">
@@ -41,16 +33,7 @@
 
 				</div>
 				<div class="col-3 col-12-narrower">
-					<div id="sidebar2">
-
-						<!-- Sidebar -->
-
-						{% set sidebars = page.collection('sidebar2') %}
-						{% for sidebar in sidebars %}
-							{{ sidebar.content()|raw }}
-						{% endfor %}
-
-					</div>
+					{{ include('partials/sidebar.html.twig', {'sid': 'sidebar2'}) }}
 				</div>
 			</div>
 		</div>

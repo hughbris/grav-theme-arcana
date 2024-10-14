@@ -29,16 +29,7 @@
 
 				</div>
 				<div class="col-4 col-12-narrower">
-					<div id="sidebar">
-
-						<!-- Sidebar -->
-
-						{% set sidebars = page.collection('sidebars') %}
-						{% for sidebar in sidebars %}
-							{{ sidebar.content()|raw }}
-						{% endfor %}
-
-					</div>
+					{{ include('partials/sidebar.html.twig') }}
 				</div>
 			</div>
 		</div>

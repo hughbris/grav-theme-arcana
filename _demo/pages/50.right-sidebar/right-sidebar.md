@@ -1,7 +1,7 @@
 ---
 title: Right Sidebar
 tagline: Sidebar on the right, content on the left.
-sidebars:
+sidebar:
   items:
     - '@page.page': '/shared/_sidebars/_just-subheading'
     - '@page.page': '/shared/_sidebars/_another-subheading'

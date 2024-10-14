@@ -1,6 +1,7 @@
 ---
 title: Left Sidebar
-sidebars:
+tagline: All content, all the time.
+sidebar:
   items:
     - '@page.page': '/shared/_sidebars/_just-subheading'
     - '@page.page': '/shared/_sidebars/_another-subheading'
