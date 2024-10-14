@@ -1,18 +1,10 @@
 			<!-- Footer -->
 				<div id="footer">
-					{% set footer = theme.footer %}
 					<div class="container">
 						<div class="row">
-							{% for col in ['col1', 'col2'] %}
-							<section class="col-3 col-6-narrower col-12-mobilep">
-								<h3>{{ footer[col].heading|e }}</h3>
-								<ul class="links">
-									{% for text, link in footer[col].links %}
-									<li><a href="{{ link|e('url') }}">{{ text|e }}</a></li>
-									{% endfor %}
-								</ul>
-							</section>
-							{% endfor %}
+							{% block site_links %}
+								{{ include('partials/site-links.html.twig') }}
+							{% endblock %}
 							{% block contact_form %}
 								{{ include('partials/contact-form.html.twig') }}
 							{% endblock %}

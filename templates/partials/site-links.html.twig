@@ -1,0 +1,11 @@
+{% set footer = theme_var('footer') %}
+{% for col in ['col1', 'col2'] %}
+<section class="col-3 col-6-narrower col-12-mobilep">
+	<h3>{{ footer[col].heading|e }}</h3>
+	<ul class="links">
+		{% for text, link in footer[col].links %}
+		<li><a href="{{ link|e('url') }}">{{ text|e }}</a></li>
+		{% endfor %}
+	</ul>
+</section>
+{% endfor %}
