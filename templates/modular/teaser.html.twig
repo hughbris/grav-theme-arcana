@@ -1,0 +1,7 @@
+<section>
+	<h3>{{ page.title }}</h3>
+	{{ page.content()|raw }}
+	<footer>
+		<a href="{{ page.header.cta.target|e('url') }}" class="button">{{ page.header.cta.text }}</a>
+	</footer>
+</section>
