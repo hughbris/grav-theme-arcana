@@ -1,0 +1,9 @@
+{% set contact = theme_var('footer').rights %}
+{% set holder = config.site.author %} {{ dump(holder) }}
+<!-- Copyright -->
+	<div class="copyright">
+		<ul class="menu">
+			<li>© {{ config.site.author.name|defined('Untitled') }}. {{ config.site.metadata.rights|defined('All rights reserved') }}</li>
+            <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+		</ul>
+	</div>
