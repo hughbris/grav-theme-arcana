@@ -1,0 +1,58 @@
+{% extends 'default.html.twig' %}
+
+{% block body %}
+<!-- Main -->
+	<section class="wrapper style1">
+		<div class="container">
+			<div class="row gtr-200">
+				<div class="col-3 col-12-narrower">
+					<div id="sidebar1">
+						<!-- Sidebar -->
+
+						{% set sidebars = page.collection('sidebar1') %}
+						{% for sidebar in sidebars %}
+							{{ sidebar.content()|raw }}
+						{% endfor %}
+
+					</div>
+				</div>
+
+				<div class="col-6 col-12-narrower imp-narrower">
+
+					<div id="content">
+
+						<!-- Content -->
+
+							<article>
+								{% block precis %}
+									{{ parent() }}
+								{% endblock %}
+
+								{% block feature %}
+									{{ parent() }}
+								{% endblock %}
+
+								{% block content %}
+									{{ page.content|raw }}
+								{% endblock %}
+
+							</article>
+					</div>
+
+				</div>
+				<div class="col-3 col-12-narrower">
+					<div id="sidebar2">
+
+						<!-- Sidebar -->
+
+						{% set sidebars = page.collection('sidebar2') %}
+						{% for sidebar in sidebars %}
+							{{ sidebar.content()|raw }}
+						{% endfor %}
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+{% endblock %}
