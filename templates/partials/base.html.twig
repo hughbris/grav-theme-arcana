@@ -62,7 +62,9 @@
 									{% block precis %}
 									<header>
 										<h2>{{ page.title|raw }}</h2>
-										<p>All content, all the time.</p>
+										{% if page.header.tagline %}
+											<p>{{ page.header.tagline }}</p>
+										{% endif %}
 									</header>
 									{% endblock %}
 
