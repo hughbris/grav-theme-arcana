@@ -1,0 +1,24 @@
+{% if page.header.highlights %}
+<!-- Highlights -->
+	<section class="wrapper style1">
+		<div class="container">
+		{% for highlight in page.header.highlights %}
+			{% if loop.index0 % 3 == 0 %}
+				<div class="row gtr-200">
+			{% endif %}
+
+			<section class="col-4 col-12-narrower">
+				<div class="box highlight">
+					<i class="icon solid major {{ highlight.icon|default('fa-question') }}"></i>
+					<h3>{{ highlight.heading }}</h3>
+					<p>{{ highlight.blurb }}</p>
+				</div>
+			</section>
+
+			{% if loop.last or loop.index % 3 == 0 %}
+				</div>
+			{% endif %}
+		{% endfor %}
+		</div>
+	</section>
+{% endif %}

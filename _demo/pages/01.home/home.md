@@ -8,6 +8,20 @@ banner:
         target: '#'
         text: 'Learn More'
 
+highlights:
+    -
+      icon: fa-paper-plane
+      heading: This Is Important
+      blurb: Duis neque nisi, dapibus sed mattis et quis, nibh. Sed et dapibus nisl amet mattis, sed a rutrum accumsan sed. Suspendisse eu.
+    -
+      icon: fa-pencil-alt
+      heading: Also Important
+      blurb: Duis neque nisi, dapibus sed mattis et quis, nibh. Sed et dapibus nisl amet mattis, sed a rutrum accumsan sed. Suspendisse eu.
+    -
+      icon: fa-wrench
+      heading: Probably Important
+      blurb: Duis neque nisi, dapibus sed mattis et quis, nibh. Sed et dapibus nisl amet mattis, sed a rutrum accumsan sed. Suspendisse eu.
+
 forms:
     contact-form:
         keep_alive: true

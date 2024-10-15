@@ -4,3 +4,19 @@
 	{{ parent() }}
 	{{ include('partials/banner.html.twig') }}
 {% endblock %}
+
+{% block feature %}{% endblock %}
+{% block precis %}{% endblock %}
+{% block body %}
+	{% if page.content()|trim is not empty %}
+		{{ parent() }}
+	{% endif %}
+{% endblock %}
+
+{% block more_sections %}
+
+	{% block highlights_section %}
+		{{ include('partials/section-highlights.html.twig') }}
+	{% endblock %}
+
+{% endblock %}
