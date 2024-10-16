@@ -4,3 +4,4 @@ author:
   # email: 'joe@example.com'
 metadata:
   description: 'Port of HTML5UP Arcana theme to Grav content management system.'
+  # rights: Everything is awesome.
