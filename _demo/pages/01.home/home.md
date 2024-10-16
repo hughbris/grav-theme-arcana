@@ -22,6 +22,10 @@ highlights:
       heading: Probably Important
       blurb: Duis neque nisi, dapibus sed mattis et quis, nibh. Sed et dapibus nisl amet mattis, sed a rutrum accumsan sed. Suspendisse eu.
 
+statement:
+    heading: A gigantic heading you can use for whatever
+    subheading: With a much smaller subtitle hanging out just below it
+
 forms:
     contact-form:
         keep_alive: true
