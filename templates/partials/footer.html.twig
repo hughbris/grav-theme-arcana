@@ -1,25 +1,23 @@
-			<!-- Footer -->
-				<div id="footer">
-					<div class="container">
-						<div class="row">
-							{% block site_links %}
-								{{ include('partials/site-links.html.twig') }}
-							{% endblock %}
-							{% block contact_form %}
-								{{ include('partials/contact-form.html.twig') }}
-							{% endblock %}
-						</div>
-					</div>
-
-					{% block social_icons %}
-						{{ include('partials/social-icons.html.twig') }}
-					{% endblock %}
-
-					{% block rights %}
-						{{ include('partials/rights.html.twig') }}
-					{% endblock %}
-
-
-				</div>
-
+<!-- Footer -->
+	<div id="footer">
+		<div class="container">
+			<div class="row">
+				{% block site_links %}
+					{{ include('partials/site-links.html.twig') }}
+				{% endblock %}
+				{% block contact_form %}
+					{{ include('partials/contact-form.html.twig') }}
+				{% endblock %}
+			</div>
 		</div>
+
+		{% block social_icons %}
+			{{ include('partials/social-icons.html.twig') }}
+		{% endblock %}
+
+		{% block rights %}
+			{{ include('partials/rights.html.twig') }}
+		{% endblock %}
+
+
+	</div>
