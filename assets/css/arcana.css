@@ -9,3 +9,13 @@
 	margin: unset;
 	font-size: smaller;
 }
+
+/* some styles for templates added */
+.template-blog-post #content ul.metadata {
+	list-style-type: none;
+	padding-left: unset;
+	background-color: #34b7ef33;
+	padding-top: 0.5rem;
+	padding-bottom: 0.5rem;
+	border-radius: 5px;
+}

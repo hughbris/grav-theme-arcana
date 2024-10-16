@@ -1,6 +1,6 @@
 ---
 title: The First Thing
-subtitle: With a smaller subtitle that attempts to elaborate
+tagline: With a smaller subtitle that attempts to elaborate
 feature:
     source: pic01.jpg
     # alt:

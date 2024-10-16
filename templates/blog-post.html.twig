@@ -1,0 +1,18 @@
+{% extends 'no-sidebar.html.twig' %} {# TODO: add a sidebar #}
+
+{% block content %}
+	{# TODO: Add LOTS MORE metadata, perhaps move it to a sidebar panel #}
+	<ul class="metadata">
+		<li><strong>Published:</strong> {{ page.date|date('F j, Y \\a\\t H:i') }}
+	</ul>
+	{{ parent() }}
+{% endblock %}
+
+{% block feature %}
+	{# FIXME: frontmatter is inconsistent but also too similar to the feature property on "normal" pages, something should change #}
+	{% set feature = page.header.feature.source %}
+	{% if feature is defined and page.media[feature] %}
+		{% set feature_url = page.media[feature].url %}
+	{% endif %}
+	<span class="image featured"><img src="{{ feature_url|default(url('theme://images/banner.jpg')) }}" alt="{{ page.header.feature.alt|defined('') }}" /></span> {# TODO: some resizing required here #}
+{% endblock %}

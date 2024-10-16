@@ -39,7 +39,7 @@
 
 </head>
 
-<body class="is-preload {{ page.header.body_classes|e }}">
+<body class="is-preload {{ page.header.body_classes|e }} template-{{ page.template()|hyphenize }}">
 	<div id="page-wrapper">
 
 {% block header %}

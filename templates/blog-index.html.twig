@@ -1,0 +1,55 @@
+{% extends 'default.html.twig' %}
+
+{% set blog = blog ?: page.find('/blog') %}
+
+{% set blog_options = page.header.blog_preview %}
+{% set blog_items = blog.collection({'items': '@self.children', 'order': {'by': 'date', 'dir': 'desc'}, 'limit': blog_options.limit|default(6)}) %}
+{# TODO: try to introduce 'sticky' into ordering here #}
+
+{# TODO: this is pretty basic, a working stub for the demo #}
+{% block body %}
+<!-- Main -->
+
+{% if blog_items|length > 0 %}
+<!-- Posts -->
+	<section class="wrapper style1">
+		<div class="container">
+
+			{% if page.content()|trim is not empty %}
+			<div id="content">
+				<!-- Content -->
+				{% block content %}
+					{{ page.content|raw }}
+				{% endblock %}
+			</div>
+			{% endif %}
+
+			{% for post in blog_items %}
+			<div class="row gtr-200">
+				<div class="col-4 col-12-narrower">
+					{# TODO: refactor into a macro/partial #}
+					<a href="{{ post.url }}" class="image left">
+					{% if post.header.feature.source and post.media.images[post.header.feature.source] %}
+						{{ post.media.images[post.header.feature.source].cropZoom(300,150).html(null, post.header.feature.alt)|raw }}
+					{% elseif post.media.images|first %}
+						{{ post.media.images|first.cropZoom(300,150).html(null, post.header.feature.alt)|raw }}
+					{% else %}
+						<img src="{{ theme_url }}/images/{{ theme_var('fallback_image') }}" alt="{{ post.header.feature.alt|defined('') }}">
+					{% endif %}
+					</a>
+				</div>
+
+				<div class="col-8  col-12-narrower imp-narrower">
+					<article>
+						<h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
+						{{ post.summary|raw }}
+					</article>
+				</div>
+			</div>
+			{% endfor %}
+
+		</div>
+	</section>
+{% endif %}
+
+{% endblock %}
