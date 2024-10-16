@@ -1,0 +1,12 @@
+{% if page.header.cta %}
+{% set cta = page.header.cta %}
+<!-- CTA -->
+    <section id="cta" class="wrapper style3">
+        <div class="container">
+            <header>
+                <h2>{{ cta.heading }}</h2>
+                <a href="{{ cta.target }}" class="button">{{ cta.text }}</a>
+            </header>
+        </div>
+    </section>
+{% endif %}

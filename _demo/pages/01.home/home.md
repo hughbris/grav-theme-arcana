@@ -30,6 +30,11 @@ blog_preview:
     # heading: Another Major Heading
     # limit: 4
 
+cta:
+    heading: 'Are you ready to continue your quest?'
+    text: 'Insert Coin'
+    target: '#'
+
 forms:
     contact-form:
         keep_alive: true
