@@ -1,0 +1,44 @@
+{% set blog = blog ?: page.find('/blog') %}
+
+{% set blog_options = page.header.blog_preview %}
+{% set blog_items = blog.collection({'items': '@self.children', 'order': {'by': 'date', 'dir': 'desc'}, 'limit': blog_options.limit|default(6)}) %}
+{# TODO: try to introduce 'sticky' into ordering here #}
+
+{% if blog_items|length > 0 %}
+<!-- Posts -->
+	<section class="wrapper style1">
+		<div class="container">
+			{% for post in blog_items %}
+
+				{% if loop.index0 % 2 == 0 %}
+					<div class="row">
+				{% endif %}
+
+				<section class="col-6 col-12-narrower">
+					<div class="box post">
+
+						<a href="{{ post.url }}" class="image left">
+						{% if post.header.feature.source and post.media.images[post.header.feature.source] %}
+							{{ post.media.images[post.header.feature.source].cropZoom(160,144).html(null, post.header.feature.alt)|raw }}
+						{% elseif post.media.images|first %}
+							{{ post.media.images|first.cropZoom(160,144).html(null, post.header.feature.alt)|raw }}
+						{% else %}
+							<img src="{{ theme_url }}/images/{{ theme_var('fallback_image') }}" alt="{{ post.header.feature.alt|defined('') }}">
+						{% endif %}
+						</a>
+
+						<div class="inner">
+							<h3>{{ post.title }}</h3>
+							{{ post.summary|raw }}
+						</div>
+					</div>
+				</section>
+
+				{% if loop.last or loop.index % 2 == 0 %}
+					</div>
+				{% endif %}
+
+			{% endfor %}
+		</div>
+	</section>
+{% endif %}

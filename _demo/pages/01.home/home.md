@@ -26,6 +26,10 @@ statement:
     heading: A gigantic heading you can use for whatever
     subheading: With a much smaller subtitle hanging out just below it
 
+blog_preview:
+    # heading: Another Major Heading
+    # limit: 4
+
 forms:
     contact-form:
         keep_alive: true
